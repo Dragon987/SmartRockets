@@ -18,10 +18,13 @@ class DNA
         let mid = floor(random(this.genes.length));
         for (let i = 0; i < this.genes.length; i++)
         {
+            let mut = random();
             if (i > mid)
                 newDNA.genes[i] = this.genes[i];
             else
                 newDNA.genes[i] = p.genes[i];
+            if (mut < 0.01)
+                newDNA.genes[i] = p5.Vector.random2D();
         }
         return newDNA;
     }

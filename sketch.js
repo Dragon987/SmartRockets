@@ -12,7 +12,7 @@ function setup()
     p = new Population();
     target = createVector(width / 2, 20);
     obstacles = [];
-    obstacles.push(new Obstacle(0, 300, 100, 20));
+    obstacles.push(new Obstacle(0, 300, 400, 20));
 }
 
 
@@ -20,7 +20,9 @@ function setup()
 function draw()
 {
     background(0);
-    p.run();
+    for (let obs of obstacles)
+        obs.show();
+    p.run(obstacles);
     lifeP.html(count);
 
     count++;

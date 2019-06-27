@@ -3,7 +3,7 @@ class Rocket
 {
     constructor(dna)
     {
-        this.pos = createVector(width / 2, height);
+        this.pos = createVector(width / 2, height - 15);
         this.vel = createVector();
         this.acc = createVector();
         if (dna)
@@ -68,13 +68,16 @@ class Rocket
     {
         for (let obs of obstacles)
         {
-            if (this.pos.x - 2.5 >= obs.x && this.pos.x + 2.5 <= obs.x + obs.w &&
-                this.pos.y - 5 >= obs.y && this.pos.x + 5 <= obs.y + obs.h)
+            if (this.pos.x - 12.5 >= obs.x && this.pos.x + 12.5 <= obs.x + obs.w &&
+                this.pos.y - 2.5 >= obs.y && this.pos.y + 2.5 <= obs.y + obs.h)
                 {
                     this.isDead = true;
                     return;
                 }
         }
+        if (this.pos.x - 12.5 <= 0 || this.pos.x + 12.5 > width ||
+            this.pos.y - 2.5 <= 0 || this.pos.y + 2.5 > height)
+            this.isDead = true;
     }
 
 }
