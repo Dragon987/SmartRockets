@@ -12,11 +12,11 @@ class Population
         this.matingPool = [];
     }
 
-    run()
+    run(obstacles)
     {
         for (let i = 0; i < this.popsize; i++)
         {
-            this.rockets[i].update();
+            this.rockets[i].update(obstacles);
             this.rockets[i].show();
         }
     }
